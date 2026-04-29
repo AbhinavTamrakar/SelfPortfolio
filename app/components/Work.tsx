@@ -29,6 +29,8 @@ const projects = [
   },
 ];
 
+
+
 export default function Work() {
   return (
     <section
