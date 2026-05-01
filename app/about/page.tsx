@@ -4,14 +4,14 @@ import { BookOpenCheck, FileDown, Layout, Hammer, Coffee } from "lucide-react";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVuedotjs, SiGithubactions, SiVercel } from 'react-icons/si';
 import ResumeModal from "../components/ResumeModal";
 import { Lora, Syne } from 'next/font/google'
+import { motion } from "framer-motion";
 
 const lora = Lora({ subsets: ['latin'], weight: '400' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
 
-// Skill mapping with Icons
 const skills = [
-  { 
-    category: "Frontend", 
+  {
+    category: "Frontend",
     Icon: Layout,
     items: [
       { name: "React", Icon: SiReact },
@@ -19,15 +19,15 @@ const skills = [
       { name: "TypeScript", Icon: SiTypescript },
       { name: "Tailwind CSS", Icon: SiTailwindcss },
       { name: "Vue.js", Icon: SiVuedotjs },
-    ] 
+    ],
   },
-  { 
-    category: "Infra / Tools", 
+  {
+    category: "Infra / Tools",
     Icon: Hammer,
     items: [
       { name: "GitHub Actions", Icon: SiGithubactions },
       { name: "Vercel", Icon: SiVercel },
-    ] 
+    ],
   },
 ];
 
@@ -43,12 +43,16 @@ export default function About() {
   return (
     <section id="about" className={lora.className + " bg-green-700 text-yellow-500"}>
 
-      {/* Full-width stat bar */}
+      {/* Stat bar */}
       <div className={`${syne.className} grid grid-cols-1 md:grid-cols-3 border-b border-yellow-500/20`}>
         {stats.map((stat, i) => (
-          <div
+          <motion.div
             key={stat.label}
             className={`px-[clamp(1rem,4vw,2.5rem)] pt-22 pb-[clamp(1.5rem,4vw,2.5rem)] border-b md:border-b-0 last:border-b-0 ${i !== stats.length - 1 ? "md:border-r border-yellow-500/20" : ""}`}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="font-['DM_Serif_Display',serif] text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.2] tracking-[-0.03em]">
               {stat.value}
@@ -57,7 +61,7 @@ export default function About() {
               {stat.label}
               {stat.Icon && <stat.Icon size={14} className="text-yellow-500" />}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -65,7 +69,13 @@ export default function About() {
       <div className={`${syne.className} grid grid-cols-1 md:grid-cols-2 gap-0`}>
 
         {/* Left column */}
-        <div className={`${lora.className} border-b md:border-b-0 md:border-r border-yellow-500/20 px-[clamp(1rem,4vw,2.5rem)] py-[clamp(3rem,8vw,5rem)]`}>
+        <motion.div
+          className={`${lora.className} border-b md:border-b-0 md:border-r border-yellow-500/20 px-[clamp(1rem,4vw,2.5rem)] py-[clamp(3rem,8vw,5rem)]`}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
           <p className="font-semibold font-['DM_Serif_Display',serif] italic mb-8 text-[15px] uppercase tracking-[0.16em] text-black">
             About Me
           </p>
@@ -89,28 +99,44 @@ export default function About() {
             {[
               { label: "GitHub", href: "https://github.com/AbhinavTamrakar" },
               { label: "LinkedIn", href: "#" },
-            ].map((link) => (
-              <a
+            ].map((link, i) => (
+              <motion.a
                 key={link.label}
                 href={link.href}
                 className="flex items-center gap-2 border border-yellow-500/40 px-4 py-2 text-[11px] uppercase tracking-widest transition-all duration-200 hover:bg-yellow-500 hover:text-green-900"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.03 }}
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
 
-            <button
+            <motion.button
               onClick={() => setShowResume(true)}
               className="flex items-center gap-2 border border-black bg-black px-4 py-2 text-[11px] uppercase tracking-widest text-green-700 cursor-pointer transition-all duration-200 hover:bg-transparent hover:text-black"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              whileHover={{ scale: 1.03 }}
             >
               <FileDown size={13} />
               Resume
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right column — skills as indexed list with Icons */}
-        <div className={`${syne.className} px-[clamp(1rem,4vw,2.5rem)] py-[clamp(3rem,8vw,5rem)]`}>
+        {/* Right column — skills */}
+        <motion.div
+          className={`${syne.className} px-[clamp(1rem,4vw,2.5rem)] py-[clamp(3rem,8vw,5rem)]`}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
           <p className="mb-8 text-[11px] uppercase tracking-[0.16em] opacity-70">
             Skills
           </p>
@@ -119,17 +145,21 @@ export default function About() {
             {skills.map((group) => (
               <div key={group.category}>
                 <div className="flex items-center gap-2 mb-4">
-                   <p className="text-[11px] uppercase tracking-widest opacity-70">
+                  <p className="text-[11px] uppercase tracking-widest opacity-70">
                     — {group.category}
                   </p>
                   <group.Icon size={14} className="text-yellow-500" />
                 </div>
-                
+
                 <div className="flex flex-col">
                   {group.items.map((skill, i) => (
-                    <div
+                    <motion.div
                       key={skill.name}
                       className="flex items-center justify-between border-t border-yellow-500/20 py-4 last:border-b group hover:bg-yellow-500/5 transition-colors"
+                      initial={{ opacity: 0, x: 16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <div className="flex items-center gap-3">
                         <skill.Icon className="text-lg transition-transform group-hover:scale-110" />
@@ -140,13 +170,13 @@ export default function About() {
                       <span className="text-[10px] tabular-nums opacity-50">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {showResume && <ResumeModal onClose={() => setShowResume(false)} />}

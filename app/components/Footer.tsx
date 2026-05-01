@@ -13,15 +13,21 @@ export default function Footer() {
       </span>
 
       <div className="flex gap-4 order-4 md:order-3">
-        {["GitHub", "LinkedIn", "Twitter"].map((s) => (
-          <a
-            key={s}
-            href="#"
-            className="text-blue-500 hover:text-shadow-green-600 uppercase text-[10px] tracking-widest transition-colors duration-200"
-          >
-            {s}
-          </a>
-        ))}
+        {[
+          { label: "GitHub", href: "https://github.com/AbhinavTamrakar" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/abhinav-tamrakar-40b1ba188/" },
+          { label: "Instagram", href: "https://www.instagram.com/hey_turke/?hl=enr" },
+        ].map((s) => (
+      <a
+        key={s.label}
+        href={s.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:text-green-600 uppercase text-[10px] tracking-widest transition-colors duration-200"
+      >
+        {s.label}
+      </a>
+      ))}
       </div>
     </footer>
   );
