@@ -1,36 +1,23 @@
 "use client";
+
 export default function Footer() {
   return (
-    <footer
-      style={{
-        padding: "2rem 2.5rem",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        fontSize: "11px",
-        color: "var(--muted)",
-        letterSpacing: "0.05em",
-      }}
-    >
-      <span style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1rem" }}>
+    <footer className="flex flex-wrap justify-between items-center gap-4 px-6 md:px-10 py-6 text-[11px] tracking-wide text-gray-500 bg-black">
+
+      <span className="font-serif text-base">
         Abhinav Tamrakar
       </span>
-      <span>Built with Next.js — {new Date().getFullYear()}</span>
-      <div style={{ display: "flex", gap: "1.5rem" }}>
+
+      <span className="order-3 w-full text-center md:order-2 md:w-auto md:text-left">
+        Built with Next.js — {new Date().getFullYear()}
+      </span>
+
+      <div className="flex gap-4 order-4 md:order-3">
         {["GitHub", "LinkedIn", "Twitter"].map((s) => (
           <a
             key={s}
             href="#"
-            style={{
-              color: "var(--muted)",
-              textDecoration: "none",
-              textTransform: "uppercase",
-              fontSize: "10px",
-              letterSpacing: "0.08em",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--fg)")}
-            onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
+            className="text-blue-500 hover:text-shadow-green-600 uppercase text-[10px] tracking-widest transition-colors duration-200"
           >
             {s}
           </a>

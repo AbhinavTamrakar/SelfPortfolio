@@ -1,24 +1,32 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next'
+import './globals.css'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import { Syne } from 'next/font/google'
+import ScrollToTop from './components/ScrollTop'
+
+const syne = Syne({ subsets: ['latin'], weight: '400' })
 
 export const metadata: Metadata = {
-  title: "Dev Portfolio",
-  description: "Personal portfolio of a developer",
-};
+  title: 'Abhinav Tamrakar - Frontend Developer',
+  description: 'I design and build clean, performant digital experiences.',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-      </head>
-      <body>{children}</body>
+      <body className={`min-h-screen flex flex-col ${syne.className}`}>
+        <Navbar />
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
+        <ScrollToTop />
+      </body>
     </html>
-  );
+  )
 }
