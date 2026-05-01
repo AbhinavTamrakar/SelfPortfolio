@@ -1,5 +1,5 @@
 'use client'
-import { X } from 'lucide-react'
+import { X, Download } from 'lucide-react'
 
 export default function ResumeModal({ onClose }: { onClose: () => void }) {
   return (
@@ -18,9 +18,19 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
           <X className="w-5 h-5" />
         </button>
 
+        {/* Download button */}
+        <a
+          href="/resume.pdf"
+          download="Abhinav_Tamrakar_Resume.pdf"
+          className="absolute top-3 right-12 z-10 bg-black text-white rounded-full p-1 hover:bg-gray-800 transition"
+          title="Download Resume"
+        >
+          <Download className="w-5 h-5" />
+        </a>
+
         {/* Resume PDF */}
         <iframe
-          src="./resume.pdf"
+          src="/resume.pdf"
           className="w-full h-full"
           title="Resume"
         />
