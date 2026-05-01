@@ -20,7 +20,7 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
 
         {/* Resume PDF */}
         <iframe
-          src="../resume.pdf"
+          src="./resume.pdf"
           className="w-full h-full"
           title="Resume"
         />
