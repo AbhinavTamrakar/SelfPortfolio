@@ -5,7 +5,7 @@ import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'Abhinav Portfolio',
+  title: 'Abhinav Portfolio Blog',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   plugins: [structureTool(), visionTool()],

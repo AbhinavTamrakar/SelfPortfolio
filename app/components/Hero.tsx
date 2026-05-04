@@ -8,6 +8,7 @@ import { MessageCircle } from 'lucide-react'
 import { Lora, Syne } from 'next/font/google'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import Link from 'next/link'
 
 const lora = Lora({ subsets: ['latin'], weight: '400' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
@@ -18,21 +19,21 @@ const slides = [
     title: "Building things for the web.",
     subtitle: "Frontend Developer",
     description: "I design and build clean, performant digital experiences.",
-    image: "./images/Abhinav.jpg",
+    image: "/images/Abhinav.jpg",
   },
   {
     id: 2,
     title: "Clean Code. Great Design.",
     subtitle: "Available for work",
     description: "Focused on frontend development with a sharp eye for detail.",
-    image: "./images/f1.jpg",
+    image: "/images/f1.jpg",
   },
   {
     id: 3,
     title: "Let's build something together.",
     subtitle: "Open to freelance",
     description: "Don't hesitate to reach out — I reply to every message.",
-    image: "./images/Manu.jpg",
+    image: "/images/Manu.jpg",
   },
 ]
 
@@ -119,12 +120,12 @@ export default function HeroSlider() {
                         exit="exit"
                         className="flex flex-wrap gap-4"
                       >
-                        <a
+                        <Link
                           href="/work"
                           className="inline-flex items-center bg-black text-white px-7 py-3 text-xs font-semibold tracking-widest hover:bg-gray-800 transition"
                         >
                           VIEW WORK
-                        </a>
+                        </Link>
                         <a
                           href="https://wa.me/9779840356245"
                           target="_blank"
