@@ -24,7 +24,6 @@ const searchIndex = [
   { label: 'Digital Portfolio Website', description: 'HTML, CSS — 2026', href: 'https://astryxportfolio.vercel.app/', page: 'Work', external: true },
   { label: 'Family First Health Clinic', description: 'HTML, CSS, JavaScript — 2025', href: 'https://familyfirst-homecare.vercel.app/', page: 'Work', external: true },
   { label: 'Work', description: 'View all selected projects', href: '/work', page: 'Work' },
-  { label: 'Blog', description: 'Thoughts and writing', href: '/blog', page: 'Blog' },
   { label: 'Contact', description: 'Get in touch or send a project inquiry', href: '/contact', page: 'Contact' },
 ]
 
@@ -41,7 +40,6 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/work', label: 'Work' },
-    { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ]
 
