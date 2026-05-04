@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+}
+.swiper,
+.swiper-wrapper,
+.swiper-slide {
+  height: 100%;
+}
